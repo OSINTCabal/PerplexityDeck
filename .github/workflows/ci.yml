@@ -1,0 +1,21 @@
+name: Linux integration
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        image: [debian:13, fedora:44]
+    container: ${{ matrix.image }}
+    steps:
+      - name: Install test prerequisites
+        run: |
+          if command -v apt-get; then apt-get update && apt-get install -y nodejs util-linux procps git; else dnf install -y nodejs util-linux procps-ng git; fi
+      - uses: actions/checkout@v7.0.1
+      - run: node --test tests/*.test.cjs
+      - run: bash -n install.sh && node --check updater/updater.js

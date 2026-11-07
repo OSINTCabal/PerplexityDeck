@@ -1,0 +1,9 @@
+[Unit]
+Description=Perplexity desktop (Linux) updater
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/opt/perplexity-desktop/updater/run-update.sh
+Nice=10

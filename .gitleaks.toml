@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Public fingerprint of the pinned upstream package signing key"
+regexes = ['''5CE6FE16BD533152E64EFD93C751F9CAC952A583''']

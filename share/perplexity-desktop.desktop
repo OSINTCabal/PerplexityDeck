@@ -1,0 +1,22 @@
+[Desktop Entry]
+Type=Application
+Name=PerplexityDeck
+GenericName=AI Answer Engine
+Comment=Perplexity desktop app for Linux
+Exec=@BIN@ %U
+Icon=perplexity-desktop
+Terminal=false
+StartupNotify=true
+StartupWMClass=perplexity
+Categories=Network;
+Keywords=AI;Search;Assistant;Perplexity;
+MimeType=x-scheme-handler/perplexity-app;x-scheme-handler/perplexity;
+Actions=CheckForUpdates;Toggle;
+
+[Desktop Action CheckForUpdates]
+Name=Check for Updates
+Exec=@BIN@ --check-updates
+
+[Desktop Action Toggle]
+Name=Show/Hide Window
+Exec=@BIN@ --toggle
